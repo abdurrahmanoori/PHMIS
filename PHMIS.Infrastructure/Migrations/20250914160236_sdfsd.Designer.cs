@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PHMIS.Infrastructure.Context;
 
@@ -10,9 +11,11 @@ using PHMIS.Infrastructure.Context;
 namespace PHMIS.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250914160236_sdfsd")]
+    partial class sdfsd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
@@ -234,7 +237,7 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hospitals", (string)null);
+                    b.ToTable("Hospitals");
 
                     b.HasData(
                         new
@@ -244,7 +247,7 @@ namespace PHMIS.Infrastructure.Migrations
                             City = "Springfield",
                             Code = "H-CENTRAL",
                             Country = "US",
-                            CreatedDate = new DateTime(2025, 9, 14, 20, 42, 55, 242, DateTimeKind.Local).AddTicks(2830),
+                            CreatedDate = new DateTime(2025, 9, 14, 20, 32, 35, 27, DateTimeKind.Local).AddTicks(189),
                             Email = "central@example.com",
                             HospitalId = 0,
                             IsActive = true,
@@ -252,7 +255,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Central Hospital",
                             Phone = "+1-555-0001",
                             PublicId = "a4ec3c8d-2b05-4a3d-9b08-8c6f0d1b4a11",
-                            UpdatedDate = new DateTime(2025, 9, 14, 20, 42, 55, 242, DateTimeKind.Local).AddTicks(2844)
+                            UpdatedDate = new DateTime(2025, 9, 14, 20, 32, 35, 27, DateTimeKind.Local).AddTicks(201)
                         },
                         new
                         {
@@ -261,7 +264,7 @@ namespace PHMIS.Infrastructure.Migrations
                             City = "Springfield",
                             Code = "H-WEST",
                             Country = "US",
-                            CreatedDate = new DateTime(2025, 9, 14, 20, 42, 55, 242, DateTimeKind.Local).AddTicks(2863),
+                            CreatedDate = new DateTime(2025, 9, 14, 20, 32, 35, 27, DateTimeKind.Local).AddTicks(215),
                             Email = "west@example.com",
                             HospitalId = 0,
                             IsActive = true,
@@ -269,7 +272,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Westside Clinic",
                             Phone = "+1-555-0002",
                             PublicId = "b8b2a2b3-6f02-4c8e-9b47-84a118e8f2c2",
-                            UpdatedDate = new DateTime(2025, 9, 14, 20, 42, 55, 242, DateTimeKind.Local).AddTicks(2864)
+                            UpdatedDate = new DateTime(2025, 9, 14, 20, 32, 35, 27, DateTimeKind.Local).AddTicks(216)
                         },
                         new
                         {
@@ -278,7 +281,7 @@ namespace PHMIS.Infrastructure.Migrations
                             City = "Springfield",
                             Code = "H-EAST",
                             Country = "US",
-                            CreatedDate = new DateTime(2025, 9, 14, 20, 42, 55, 242, DateTimeKind.Local).AddTicks(2870),
+                            CreatedDate = new DateTime(2025, 9, 14, 20, 32, 35, 27, DateTimeKind.Local).AddTicks(222),
                             Email = "east@example.com",
                             HospitalId = 0,
                             IsActive = true,
@@ -286,7 +289,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "East Medical Center",
                             Phone = "+1-555-0003",
                             PublicId = "c3f4d6e7-8a90-4b2c-b3d4-e5f6a7b8c9d0",
-                            UpdatedDate = new DateTime(2025, 9, 14, 20, 42, 55, 242, DateTimeKind.Local).AddTicks(2871)
+                            UpdatedDate = new DateTime(2025, 9, 14, 20, 32, 35, 27, DateTimeKind.Local).AddTicks(223)
                         });
                 });
 
@@ -397,7 +400,7 @@ namespace PHMIS.Infrastructure.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8586278e-b6bf-49fc-afdf-34efd8e76a95",
+                            ConcurrencyStamp = "a9795c8c-1163-4274-adec-b86ccfc2bb84",
                             Email = "admin@local",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -406,7 +409,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCAL",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOiTifq1DYd7oTdujYEHZ2WNlLhWXDuTHBmHsR+0GiHLtuNk9aZT5JcdbarNViTPmQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPOuWDryVAmuV15KStMdCQu9+C8aHMNkMFjA3wVOINaDWFe+GeF86yDhZ6QcfMowpw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "admin-seed",
                             TwoFactorEnabled = false,
@@ -416,7 +419,7 @@ namespace PHMIS.Infrastructure.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dda094e6-aede-4a98-88e7-490b8953eec0",
+                            ConcurrencyStamp = "96bf0de7-f7da-47ab-8965-c13c61867507",
                             Email = "user@local",
                             EmailConfirmed = true,
                             FirstName = "Default",
@@ -425,7 +428,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCAL",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAECwwGxvuSOw+QewNiU5O1lGcsUP1mOYEJjo+w83fKXjKamNYCR3TDK72aJKLoYeDIA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH9ghdvhTL4mAftMIVCjAU/M9nPBkCPGTHVVM6LFtPxJDeT71IobVQWnjdxoxesVRA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "user-seed",
                             TwoFactorEnabled = false,
@@ -457,9 +460,11 @@ namespace PHMIS.Infrastructure.Migrations
                     b.Property<int>("LabTestGroupId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("LabTestGroupId1")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("NormalRange")
@@ -479,7 +484,9 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.HasIndex("LabTestGroupId");
 
-                    b.ToTable("LabTests", (string)null);
+                    b.HasIndex("LabTestGroupId1");
+
+                    b.ToTable("LabTests");
 
                     b.HasData(
                         new
@@ -494,7 +501,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Glucose",
                             NormalRange = "70-99",
                             Price = 10,
-                            PublicId = "36cfed33-e669-4b20-aa85-3e10f8a8aac2",
+                            PublicId = "26f752f8-aaf0-42ca-8221-2f9c040650da",
                             UnitOfMeasurment = "mg/dL"
                         },
                         new
@@ -509,7 +516,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Lipid Profile",
                             NormalRange = "Varies",
                             Price = 25,
-                            PublicId = "e1bfe9eb-c98d-479d-9d81-ec21a44a775d",
+                            PublicId = "e9987587-4fab-4008-bc6c-f7115dea6577",
                             UnitOfMeasurment = "mg/dL"
                         },
                         new
@@ -524,7 +531,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "CBC",
                             NormalRange = "Varies",
                             Price = 20,
-                            PublicId = "35c649ba-f088-4afa-ad62-489782498caf"
+                            PublicId = "23aae843-76a0-48b7-a0a5-65d9d0abe255"
                         },
                         new
                         {
@@ -538,7 +545,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Urine Culture",
                             NormalRange = "Negative",
                             Price = 30,
-                            PublicId = "3dc686e6-4a1a-49b4-9391-83a654ce8dfe"
+                            PublicId = "b4102c91-15ba-4efe-a4fa-5ee4b5e93786"
                         });
                 });
 
@@ -559,7 +566,6 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PublicId")
@@ -571,7 +577,7 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LabTestGroups", (string)null);
+                    b.ToTable("LabTestGroups");
 
                     b.HasData(
                         new
@@ -581,7 +587,7 @@ namespace PHMIS.Infrastructure.Migrations
                             HospitalId = 0,
                             IsPublic = false,
                             Name = "Chemistry",
-                            PublicId = "2bb34d96-d5f1-4254-a144-b988fd9063a0",
+                            PublicId = "ec199fe7-d8f6-4492-8fc4-72e39527112b",
                             SortOrder = (short)1
                         },
                         new
@@ -591,7 +597,7 @@ namespace PHMIS.Infrastructure.Migrations
                             HospitalId = 0,
                             IsPublic = false,
                             Name = "Hematology",
-                            PublicId = "0646a6ae-ca17-4eed-ac10-6d8bc4efe7e2",
+                            PublicId = "f36e4fc8-b351-4fee-bfcb-3bd61da7bde3",
                             SortOrder = (short)2
                         },
                         new
@@ -601,7 +607,7 @@ namespace PHMIS.Infrastructure.Migrations
                             HospitalId = 0,
                             IsPublic = false,
                             Name = "Microbiology",
-                            PublicId = "bb1a49bb-3baf-4290-84ac-7957e1f1afce",
+                            PublicId = "ea135d2e-c3a9-4c46-b741-1f2193a0dd03",
                             SortOrder = (short)3
                         });
                 });
@@ -653,7 +659,7 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.HasIndex("HospitalId");
 
-                    b.ToTable("Patients", (string)null);
+                    b.ToTable("Patients");
 
                     b.HasData(
                         new
@@ -668,7 +674,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LastName = "Doe",
                             Name = "John",
                             PhoneNumber = "555-1234",
-                            PublicId = "5c82915a-ddf6-465f-9b0e-20555474d50b"
+                            PublicId = "a80ad021-1245-4421-b99b-78c616104ec3"
                         },
                         new
                         {
@@ -682,7 +688,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LastName = "Smith",
                             Name = "Jane",
                             PhoneNumber = "555-5678",
-                            PublicId = "a28579e9-d1f0-4ff6-a2e5-a34e10d43aee"
+                            PublicId = "54a0beab-3e07-4e03-9a95-d2d28a8a2e16"
                         },
                         new
                         {
@@ -696,7 +702,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LastName = "Johnson",
                             Name = "Alex",
                             PhoneNumber = "555-9012",
-                            PublicId = "aadedb64-01e9-4a4c-b20d-979e13ae1bfc"
+                            PublicId = "cab16574-29ca-43b3-b307-17448f32db56"
                         });
                 });
 
@@ -766,7 +772,6 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -775,7 +780,7 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("PatientLabTests", (string)null);
+                    b.ToTable("PatientLabTests");
                 });
 
             modelBuilder.Entity("PHMIS.Domain.Entities.Province", b =>
@@ -800,7 +805,7 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Provinces", (string)null);
+                    b.ToTable("Provinces");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -868,10 +873,14 @@ namespace PHMIS.Infrastructure.Migrations
             modelBuilder.Entity("PHMIS.Domain.Entities.Laboratory.LabTest", b =>
                 {
                     b.HasOne("PHMIS.Domain.Entities.Laboratory.LabTestGroup", "LabTestGroup")
-                        .WithMany("LabTests")
+                        .WithMany()
                         .HasForeignKey("LabTestGroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("PHMIS.Domain.Entities.Laboratory.LabTestGroup", null)
+                        .WithMany("LabTests")
+                        .HasForeignKey("LabTestGroupId1");
 
                     b.Navigation("LabTestGroup");
                 });
@@ -890,13 +899,13 @@ namespace PHMIS.Infrastructure.Migrations
             modelBuilder.Entity("PHMIS.Domain.Entities.Patients.PatientLabTest", b =>
                 {
                     b.HasOne("PHMIS.Domain.Entities.Laboratory.LabTest", "LabTest")
-                        .WithMany("PatientLabTests")
+                        .WithMany()
                         .HasForeignKey("LabTestId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("PHMIS.Domain.Entities.Patients.Patient", "Patient")
-                        .WithMany("PatientLabTests")
+                        .WithMany()
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -913,19 +922,9 @@ namespace PHMIS.Infrastructure.Migrations
                     b.Navigation("Patients");
                 });
 
-            modelBuilder.Entity("PHMIS.Domain.Entities.Laboratory.LabTest", b =>
-                {
-                    b.Navigation("PatientLabTests");
-                });
-
             modelBuilder.Entity("PHMIS.Domain.Entities.Laboratory.LabTestGroup", b =>
                 {
                     b.Navigation("LabTests");
-                });
-
-            modelBuilder.Entity("PHMIS.Domain.Entities.Patients.Patient", b =>
-                {
-                    b.Navigation("PatientLabTests");
                 });
 #pragma warning restore 612, 618
         }

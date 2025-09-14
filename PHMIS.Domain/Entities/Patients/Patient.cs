@@ -1,4 +1,5 @@
 ﻿using PHMIS.Domain.Common.BaseAbstract;
+using PHMIS.Domain.Entities.Patients;
 
 namespace PHMIS.Domain.Entities.Patients;
 
@@ -14,4 +15,6 @@ public class Patient : BaseEntity
     public int HospitalId { get; set; }
 
     public Hospital? Hospital { get; set; }
+
+    public ICollection<PatientLabTest> PatientLabTests { get; set; } = new List<PatientLabTest>();
 }

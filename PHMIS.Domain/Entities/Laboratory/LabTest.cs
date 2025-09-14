@@ -1,4 +1,5 @@
 ﻿using PHMIS.Domain.Common.BaseAbstract;
+using PHMIS.Domain.Entities.Patients;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PHMIS.Domain.Entities.Laboratory
@@ -18,5 +19,6 @@ namespace PHMIS.Domain.Entities.Laboratory
         [ForeignKey(nameof(LabTestGroupId))]
         public LabTestGroup LabTestGroup { get; set; }
 
+        public ICollection<PatientLabTest> PatientLabTests { get; set; } = new List<PatientLabTest>();
     }
 }
