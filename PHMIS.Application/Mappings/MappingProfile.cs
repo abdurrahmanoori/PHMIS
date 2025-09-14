@@ -13,8 +13,12 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<Patient, PatientDto>().ReverseMap();
-        CreateMap<Patient, PatientCreateDto>().ReverseMap();
+        CreateMap<Patient, PatientDto>()
+            .ForMember(dest => dest.HospitalId, opt => opt.MapFrom(src => src.HospitalId))
+            .ReverseMap();
+        CreateMap<Patient, PatientCreateDto>()
+            .ForMember(dest => dest.HospitalId, opt => opt.MapFrom(src => src.HospitalId))
+            .ReverseMap();
 
         CreateMap<Province, ProvinceDto>().ReverseMap();
         CreateMap<Province, ProvinceCreateDto>().ReverseMap();

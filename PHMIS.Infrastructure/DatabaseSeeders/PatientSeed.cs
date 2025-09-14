@@ -17,7 +17,8 @@ namespace PHMIS.Infrastructure.DatabaseSeeders
                     Gender = "Male",
                     PhoneNumber = "555-1234",
                     Email = "john.doe@example.com",
-                    Address = "123 Main St, Springfield"
+                    Address = "123 Main St, Springfield",
+                    HospitalId = 1
                 },
                 new Patient
                 {
@@ -28,7 +29,8 @@ namespace PHMIS.Infrastructure.DatabaseSeeders
                     Gender = "Female",
                     PhoneNumber = "555-5678",
                     Email = "jane.smith@example.com",
-                    Address = "456 Elm St, Springfield"
+                    Address = "456 Elm St, Springfield",
+                    HospitalId = 1
                 },
                 new Patient
                 {
@@ -39,7 +41,8 @@ namespace PHMIS.Infrastructure.DatabaseSeeders
                     Gender = "Other",
                     PhoneNumber = "555-9012",
                     Email = "alex.johnson@example.com",
-                    Address = "789 Oak St, Springfield"
+                    Address = "789 Oak St, Springfield",
+                    HospitalId = 1
                 }
             );
         }

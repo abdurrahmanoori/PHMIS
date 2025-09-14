@@ -13,7 +13,7 @@ public class CreatePatientCommandValidator : AbstractValidator<CreatePatientComm
 
         When(x => x.PatientCreateDto != null, () =>
         {
-            RuleFor(x => x.PatientCreateDto!.FirstName)
+            RuleFor(x => x.PatientCreateDto!.Name)
                 .NotEmpty().WithMessage("First name is required.")
                 .MaximumLength(100);
 

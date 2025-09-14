@@ -34,15 +34,20 @@ namespace PHMIS.Test.Controllers
         {
             // Arrange
             var dto = PatientBuilder.CreateValidPatient();
+            dto.HospitalId = 1;
 
             // Act
             var postResponse = await _client.PostAsJsonAsync("/api/patient", dto);
-
+            if (!postResponse.IsSuccessStatusCode)
+            {
+                var errorContent = await postResponse.Content.ReadAsStringAsync();
+                Console.WriteLine($"Errorr: {errorContent}");
+            }
             // Assert
             postResponse.StatusCode.Should().Be(HttpStatusCode.OK);
-            var created = await postResponse.Content.ReadFromJsonAsync<PatientCreateDto>();
+            var created = await postResponse.Content.ReadFromJsonAsync<PatientDto>();
             created.Should().NotBeNull();
-            created!.FirstName.Should().Be(dto.FirstName);
+            created!.Name.Should().Be(dto.Name);
 
             // Verify list contains the new patient
             var listResponse = await _client.GetAsync("/api/patient?pageNumber=1&pageSize=100");
@@ -66,13 +71,14 @@ namespace PHMIS.Test.Controllers
             // Arrange
             var invalid = new PatientCreateDto
             {
-                FirstName = "", // invalid
+                Name = "", // invalid
                 LastName = "",
                 DateOfBirth = DateTime.UtcNow.AddDays(1), // future date invalid
                 Gender = "",
                 PhoneNumber = "",
                 Email = "not-an-email",
-                Address = ""
+                Address = "",
+                HospitalId = 1
             };
 
             // Act
@@ -90,6 +96,7 @@ namespace PHMIS.Test.Controllers
             {
                 var dto = new PatientBuilder()
                     .WithEmail($"user{i}_{Guid.NewGuid():N}@test.local")
+                    .WithHospitalId(1)
                     .BuildCreateDto();
                 await _client.PostAsJsonAsync("/api/patient", dto);
             }
@@ -122,6 +129,7 @@ namespace PHMIS.Test.Controllers
         {
             // Arrange - Create a patient first
             var dto = PatientBuilder.CreateValidPatient();
+            dto.HospitalId = 1;
             var createResponse = await _client.PostAsJsonAsync("/api/patient", dto);
             createResponse.EnsureSuccessStatusCode();
 
@@ -132,13 +140,14 @@ namespace PHMIS.Test.Controllers
 
             var updated = new PatientCreateDto
             {
-                FirstName = existing.FirstName,
+                Name = existing.Name,
                 LastName = "Updated",
                 DateOfBirth = existing.DateOfBirth,
                 Gender = existing.Gender,
                 PhoneNumber = existing.PhoneNumber,
                 Email = existing.Email,
-                Address = existing.Address
+                Address = existing.Address,
+                HospitalId = 1
             };
 
             // Act
@@ -155,6 +164,7 @@ namespace PHMIS.Test.Controllers
         {
             // Arrange: Create a patient
             var dto = PatientBuilder.CreateValidPatient();
+            dto.HospitalId = 1;
             var createResponse = await _client.PostAsJsonAsync("/api/patient", dto);
             createResponse.EnsureSuccessStatusCode();
 
