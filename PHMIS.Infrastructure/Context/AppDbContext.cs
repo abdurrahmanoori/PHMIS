@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PHMIS.Domain.Entities;
 using PHMIS.Domain.Entities.Identity.Entity;
 using PHMIS.Domain.Entities.Laboratory;
 using PHMIS.Domain.Entities.Patients;
-using PHMIS.Domain.Enums;
 using PHMIS.Infrastructure.DatabaseSeeders;
+using System.Reflection;
 
 namespace PHMIS.Infrastructure.Context
 {
@@ -20,6 +19,9 @@ namespace PHMIS.Infrastructure.Context
         {
             base.OnModelCreating(modelBuilder);
 
+            // Apply all IEntityTypeConfiguration classes from this assembly
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
             #region Seed Database
             PatientSeed.DataSeed(modelBuilder);
             LabTestGroupSeed.DataSeed(modelBuilder);
@@ -27,17 +29,6 @@ namespace PHMIS.Infrastructure.Context
             HospitalSeed.DataSeed(modelBuilder);
             UserSeed.DataSeed(modelBuilder);
             #endregion
-
-            modelBuilder.Entity<LabTest>()
-                .HasOne(x => x.LabTestGroup)
-                .WithMany()
-                .HasForeignKey(x => x.LabTestGroupId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // Store LabStatus enum as string in PatientLabTest.Status
-            modelBuilder.Entity<PatientLabTest>()
-                .Property(x => x.Status)
-                .HasConversion(new EnumToStringConverter<LabStatus>());
 
             // Allow extension from other layers via partial method
             OnModelCreatingPartial(modelBuilder);

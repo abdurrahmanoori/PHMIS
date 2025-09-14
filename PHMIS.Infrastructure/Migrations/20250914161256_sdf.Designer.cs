@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PHMIS.Infrastructure.Context;
 
@@ -10,9 +11,11 @@ using PHMIS.Infrastructure.Context;
 namespace PHMIS.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250914161256_sdf")]
+    partial class sdf
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
@@ -234,7 +237,7 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hospitals", (string)null);
+                    b.ToTable("Hospitals");
 
                     b.HasData(
                         new
@@ -479,7 +482,7 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.HasIndex("LabTestGroupId");
 
-                    b.ToTable("LabTests", (string)null);
+                    b.ToTable("LabTests");
 
                     b.HasData(
                         new
@@ -571,7 +574,7 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LabTestGroups", (string)null);
+                    b.ToTable("LabTestGroups");
 
                     b.HasData(
                         new
@@ -653,7 +656,7 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.HasIndex("HospitalId");
 
-                    b.ToTable("Patients", (string)null);
+                    b.ToTable("Patients");
 
                     b.HasData(
                         new
@@ -775,7 +778,7 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("PatientLabTests", (string)null);
+                    b.ToTable("PatientLabTests");
                 });
 
             modelBuilder.Entity("PHMIS.Domain.Entities.Province", b =>
@@ -800,7 +803,7 @@ namespace PHMIS.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Provinces", (string)null);
+                    b.ToTable("Provinces");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
