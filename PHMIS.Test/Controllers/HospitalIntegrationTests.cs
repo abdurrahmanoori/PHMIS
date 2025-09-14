@@ -6,6 +6,7 @@ using PHMIS.Test.Extensions;
 using System.Net;
 using System.Net.Http.Json;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace PHMIS.Test.Controllers
 {
@@ -13,11 +14,23 @@ namespace PHMIS.Test.Controllers
     {
         private readonly CustomWebApplicationFactory _factory;
         private readonly HttpClient _client;
+        private readonly ITestOutputHelper _output;
 
-        public HospitalIntegrationTests(CustomWebApplicationFactory factory)
+        public HospitalIntegrationTests(CustomWebApplicationFactory factory, ITestOutputHelper output)
         {
             _factory = factory;
             _client = factory.CreateClient();
+            _output = output;
+        }
+
+        private async Task LogIfError(HttpResponseMessage response, string context = "")
+        {
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                _output.WriteLine($"[{context}] Status: {(int)response.StatusCode} {response.StatusCode}");
+                _output.WriteLine($"[{context}] Error: {errorContent}");
+            }
         }
 
         public async Task InitializeAsync()
@@ -40,9 +53,11 @@ namespace PHMIS.Test.Controllers
             };
 
             var post = await _client.PostAsJsonAsync("/api/hospital", dto);
+            await LogIfError(post, "Post_CreateHospital");
             post.StatusCode.Should().Be(HttpStatusCode.OK);
 
             var listResponse = await _client.GetAsync("/api/hospital?pageNumber=1&pageSize=100");
+            await LogIfError(listResponse, "ListHospitals");
             listResponse.EnsureSuccessStatusCode();
             var paged = await listResponse.Content.ReadFromJsonAsync<PagedList<HospitalDto>>();
             paged!.Items.Should().Contain(x => x.Code == dto.Code);
@@ -52,6 +67,7 @@ namespace PHMIS.Test.Controllers
         public async Task Get_ById_ReturnsNotFound_ForUnknownId()
         {
             var response = await _client.GetAsync("/api/hospital/999999");
+            await LogIfError(response, "GetHospitalById_Unknown");
             response.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
 
@@ -68,9 +84,11 @@ namespace PHMIS.Test.Controllers
             };
 
             var post = await _client.PostAsJsonAsync("/api/hospital", dto);
+            await LogIfError(post, "Put_UpdateHospital_Seed");
             post.EnsureSuccessStatusCode();
 
             var listResponse = await _client.GetAsync("/api/hospital?pageNumber=1&pageSize=200");
+            await LogIfError(listResponse, "Put_UpdateHospital_List");
             var list = await listResponse.Content.ReadFromJsonAsync<PagedList<HospitalDto>>();
             var existing = list!.Items.Last(x => x.Code == dto.Code);
 
@@ -84,6 +102,7 @@ namespace PHMIS.Test.Controllers
             };
 
             var put = await _client.PutAsJsonAsync($"/api/hospital/{existing.Id}", updated);
+            await LogIfError(put, "Put_UpdateHospital_Update");
             put.StatusCode.Should().Be(HttpStatusCode.OK);
             var got = await put.Content.ReadFromJsonAsync<HospitalDto>();
             got!.Address.Should().Be("Updated Address");
@@ -102,16 +121,20 @@ namespace PHMIS.Test.Controllers
             };
 
             var post = await _client.PostAsJsonAsync("/api/hospital", dto);
+            await LogIfError(post, "Delete_Hospital_Seed");
             post.EnsureSuccessStatusCode();
 
             var listResponse = await _client.GetAsync("/api/hospital?pageNumber=1&pageSize=200");
+            await LogIfError(listResponse, "Delete_Hospital_List");
             var list = await listResponse.Content.ReadFromJsonAsync<PagedList<HospitalDto>>();
             var existing = list!.Items.Last(x => x.Code == dto.Code);
 
             var delete = await _client.DeleteAsync($"/api/hospital/{existing.Id}");
+            await LogIfError(delete, "Delete_Hospital_Delete");
             delete.StatusCode.Should().Be(HttpStatusCode.OK);
 
             var deleteAgain = await _client.DeleteAsync($"/api/hospital/{existing.Id}");
+            await LogIfError(deleteAgain, "Delete_Hospital_DeleteAgain");
             deleteAgain.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
     }

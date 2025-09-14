@@ -5,19 +5,32 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using PHMIS.Application.Identity.Models;
 using PHMIS.Test.TestInfrastructure;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace PHMIS.Test.Controllers
 {
     public class UsersIntegrationTests : IClassFixture<CustomWebApplicationFactory>
     {
         private readonly HttpClient _client;
+        private readonly ITestOutputHelper _output;
 
-        public UsersIntegrationTests(CustomWebApplicationFactory factory)
+        public UsersIntegrationTests(CustomWebApplicationFactory factory, ITestOutputHelper output)
         {
             _client = factory.CreateClient(new WebApplicationFactoryClientOptions
             {
                 AllowAutoRedirect = false
             });
+            _output = output;
+        }
+
+        private async Task LogIfError(HttpResponseMessage response, string context = "")
+        {
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                _output.WriteLine($"[{context}] Status: {(int)response.StatusCode} {response.StatusCode}");
+                _output.WriteLine($"[{context}] Error: {errorContent}");
+            }
         }
 
         [Fact]
@@ -35,6 +48,7 @@ namespace PHMIS.Test.Controllers
             };
 
             var response = await _client.PostAsJsonAsync("/api/users", dto);
+            await LogIfError(response, "CreateUser");
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             var id = await response.Content.ReadFromJsonAsync<int>();
             id.Should().BeGreaterThan(0);
@@ -44,6 +58,7 @@ namespace PHMIS.Test.Controllers
         public async Task GetUsers_Should_Return_List()
         {
             var response = await _client.GetAsync("/api/users");
+            await LogIfError(response, "GetUsers");
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
     }
