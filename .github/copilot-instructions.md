@@ -12,6 +12,8 @@ After completing any work, try to run all the tests without any error and build 
 
 If you encounter any problem, avoid introducing solutions that could cause breaking changes in the project.
 
+If a test fails, inspect the test output using `private readonly ITestOutputHelper _output;` to identify the issue and fix the test. 
+
 
 
 ## React Application Instruction
