@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PHMIS.Domain.Common
+namespace PHMIS.Domain.Common.BaseAbstract
 {
     public abstract class BaseEntity 
     {

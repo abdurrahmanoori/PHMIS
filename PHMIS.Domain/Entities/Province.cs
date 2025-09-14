@@ -1,4 +1,4 @@
-using PHMIS.Domain.Common;
+using PHMIS.Domain.Common.BaseAbstract;
 
 namespace PHMIS.Domain.Entities
 {
