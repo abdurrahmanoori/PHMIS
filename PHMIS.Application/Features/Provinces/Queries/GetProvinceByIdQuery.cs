@@ -21,7 +21,7 @@ namespace PHMIS.Application.Features.Provinces.Queries
 
         public async Task<Result<ProvinceDto>> Handle(GetProvinceByIdQuery request, CancellationToken cancellationToken)
         {
-            var entity = await _provinceRepository.GetByIdAsync(request.Id);
+            var entity = await _provinceRepository.GetFirstOrDefaultAsync(x => x.Id == request.Id, includeProperties: nameof(Domain.Entities.Province.Translations));
             if (entity is null)
             {
                 return Result<ProvinceDto>.NotFoundResult(request.Id);

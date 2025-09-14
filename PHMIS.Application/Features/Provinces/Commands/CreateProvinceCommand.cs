@@ -23,9 +23,20 @@ namespace PHMIS.Application.Features.Provinces.Commands
             _provinceRepository = provinceRepository;
         }
 
-        public async Task<Result<ProvinceCreateDto>> Handle(CreateProvinceCommand request, CancellationToken cancellationToken)
+        public async Task<Result<ProvinceCreateDto>> Handle(CreateProvinceCommand request,
+            CancellationToken cancellationToken)
         {
             var entity = _mapper.Map<Province>(request.ProvinceCreateDto);
+
+            // Ensure at least one translation exists for Name fallback
+            if ((entity.Translations == null || entity.Translations.Count == 0) && !string.IsNullOrWhiteSpace(request.ProvinceCreateDto.Name))
+            {
+                entity.Translations = new List<ProvinceTranslation>
+                {
+                    new ProvinceTranslation { Language = "en", IsDefault = true, Name = request.ProvinceCreateDto.Name }
+                };
+            }
+
             await _provinceRepository.AddAsync(entity);
             await _unitOfWork.SaveChanges(cancellationToken);
             return Result<ProvinceCreateDto>.SuccessResult(request.ProvinceCreateDto);

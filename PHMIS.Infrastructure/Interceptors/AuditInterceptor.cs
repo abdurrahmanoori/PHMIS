@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using PHMIS.Application.Common;
 using PHMIS.Application.Identity.IServices;
 using PHMIS.Domain.Common.BaseAbstract;
 

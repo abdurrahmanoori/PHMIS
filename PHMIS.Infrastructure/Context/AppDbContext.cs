@@ -38,6 +38,7 @@ namespace PHMIS.Infrastructure.Context
 
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Province> Provinces { get; set; }
+        public DbSet<ProvinceTranslation> ProvinceTranslations { get; set; }
         public DbSet<LabTestGroup> LabTestGroups { get; set; }
         public DbSet<LabTest> LabTests { get; set; }
         public DbSet<PatientLabTest> PatientLabTests { get; set; }

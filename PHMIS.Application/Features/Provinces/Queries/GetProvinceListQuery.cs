@@ -1,5 +1,4 @@
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using MediatR;
 using PHMIS.Application.Common;
 using PHMIS.Application.Common.Response;
@@ -23,14 +22,28 @@ namespace PHMIS.Application.Features.Provinces.Queries
 
         public async Task<Result<PagedList<ProvinceDto>>> Handle(GetProvinceListQuery request, CancellationToken cancellationToken)
         {
-            var query = _provinceRepository.GetAllQueryable();
-            var dtoQuery = query.ProjectTo<ProvinceDto>(_mapper.ConfigurationProvider);
-            var paged = await dtoQuery.ToPagedList(request.PageNumber, request.PageSize);
-            if (paged.Items.Count == 0)
+            var query = _provinceRepository.GetAllQueryable(includeProperties: nameof(Domain.Entities.Province.Translations));
+
+            // Page domain entities first
+            var pagedEntities = await query.ToPagedList(request.PageNumber, request.PageSize);
+            if (pagedEntities.Items.Count == 0)
             {
                 return Result<PagedList<ProvinceDto>>.EmptyResult(nameof(ProvinceDto));
             }
-            return Result<PagedList<ProvinceDto>>.SuccessResult(paged);
+
+            // Map paged items to DTOs with culture-aware name resolution
+            var dtoItems = _mapper.Map<List<ProvinceDto>>(pagedEntities.Items);
+
+            var pagedDto = new PagedList<ProvinceDto>
+            {
+                PageNumber = pagedEntities.PageNumber,
+                PageSize = pagedEntities.PageSize,
+                TotalCount = pagedEntities.TotalCount,
+                TotalPages = pagedEntities.TotalPages,
+                Items = dtoItems
+            };
+
+            return Result<PagedList<ProvinceDto>>.SuccessResult(pagedDto);
         }
     }
 }
