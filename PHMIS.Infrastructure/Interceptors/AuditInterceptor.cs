@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using PHMIS.Application.Common;
 using PHMIS.Application.Identity.IServices;
+using PHMIS.Domain.Common.BaseAbstract;
 
 namespace PHMIS.Infrastructure.Interceptors
 {
@@ -23,28 +24,52 @@ namespace PHMIS.Infrastructure.Interceptors
 
             if (context == null) return await base.SavingChangesAsync(eventData, result, cancellationToken);
 
-            foreach (var entry in context.ChangeTracker.Entries<AuditableEntity>())
+            foreach (var entry in context.ChangeTracker.Entries<BaseAuditableEntity>())
             {
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Entity.CreatedAt = DateTime.UtcNow;
+                    entry.Entity.CreatedDate = DateTime.UtcNow;
                     entry.Entity.CreatedBy = _currentUser.GetUserId();
+                    entry.Entity.HospitalId = _currentUser.GetHospitalId();
                 }
 
                 if (entry.State == EntityState.Modified)
                 {
-                    entry.Entity.UpdatedAt = DateTime.UtcNow;
+                    entry.Entity.UpdatedDate = DateTime.UtcNow;
                     entry.Entity.UpdatedBy = _currentUser.GetUserId();
-                    entry.Property(e => e.CreatedAt).IsModified = false; // Ensure CreatedDate is not updated
+                    entry.Property(e => e.CreatedDate).IsModified = false; // Ensure CreatedDate is not updated
+                    entry.Entity.HospitalId = _currentUser.GetHospitalId();
                 }
                 if (entry.State == EntityState.Deleted)
                 {
-                    entry.State = EntityState.Modified; // Soft-delete the entity
-                    entry.Entity.IsDeleted = true;
-                    entry.Entity.DeletedAt = DateTime.UtcNow;
-                    entry.Entity.DeletedBy = _currentUser.GetUserId();
+                    //entry.State = EntityState.Modified; // Soft-delete the entity
+                    //entry.Entity.IsDeleted = true;
+                    //entry.Entity.DeletedAt = DateTime.UtcNow;
+                    //entry.Entity.DeletedBy = _currentUser.GetUserId();
                 }
             }
+            //foreach (var entry in context.ChangeTracker.Entries<AuditableEntity>())
+            //{
+            //    if (entry.State == EntityState.Added)
+            //    {
+            //        entry.Entity.CreatedAt = DateTime.UtcNow;
+            //        entry.Entity.CreatedBy = _currentUser.GetUserId();
+            //    }
+
+            //    if (entry.State == EntityState.Modified)
+            //    {
+            //        entry.Entity.UpdatedAt = DateTime.UtcNow;
+            //        entry.Entity.UpdatedBy = _currentUser.GetUserId();
+            //        entry.Property(e => e.CreatedAt).IsModified = false; // Ensure CreatedDate is not updated
+            //    }
+            //    if (entry.State == EntityState.Deleted)
+            //    {
+            //        entry.State = EntityState.Modified; // Soft-delete the entity
+            //        entry.Entity.IsDeleted = true;
+            //        entry.Entity.DeletedAt = DateTime.UtcNow;
+            //        entry.Entity.DeletedBy = _currentUser.GetUserId();
+            //    }
+            //}
 
             return await base.SavingChangesAsync(eventData, result, cancellationToken);
         }

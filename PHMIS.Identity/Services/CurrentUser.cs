@@ -12,6 +12,7 @@ namespace PHMIS.Identity.Services
             //_httpContextAccessor = httpContextAccessor;
         }
 
+        
         public int GetHospitalId()
         {
             return 1;

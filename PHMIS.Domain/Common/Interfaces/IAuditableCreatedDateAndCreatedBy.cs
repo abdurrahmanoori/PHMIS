@@ -1,4 +1,4 @@
-﻿namespace PHMIS.Application.Common.Interfaces;
+﻿namespace PHMIS.Domain.Common.Interfaces;
 
 public interface IAuditableCreatedDateAndCreatedBy
 {

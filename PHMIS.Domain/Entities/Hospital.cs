@@ -1,4 +1,4 @@
-﻿using PHMIS.Domain.Common;
+﻿using PHMIS.Domain.Common.BaseAbstract;
 using PHMIS.Domain.Entities.Identity.Entity;
 using PHMIS.Domain.Entities.Patients;
 

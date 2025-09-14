@@ -1,4 +1,4 @@
-﻿using PHMIS.Domain.Common;
+﻿using PHMIS.Domain.Common.BaseAbstract;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PHMIS.Domain.Entities.Laboratory
