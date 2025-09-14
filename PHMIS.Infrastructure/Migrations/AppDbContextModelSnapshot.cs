@@ -373,6 +373,46 @@ namespace PHMIS.Infrastructure.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "ce7384dc-68ac-43c3-8245-c96a7617a097",
+                            Email = "admin@local",
+                            EmailConfirmed = true,
+                            FirstName = "System",
+                            HospitalId = 1,
+                            LastName = "Admin",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@LOCAL",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBaZoWy2Z8aHVkORsRG4vzTQ6MwpciJE3zN60GxMlcGj0ebHxOM8EdUKKv3EIP2e6Q==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "admin-seed",
+                            TwoFactorEnabled = false,
+                            UserName = "admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "8a4e0ffc-e115-4b0e-832d-0ef95b73afca",
+                            Email = "user@local",
+                            EmailConfirmed = true,
+                            FirstName = "Default",
+                            HospitalId = 1,
+                            LastName = "User",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER@LOCAL",
+                            NormalizedUserName = "USER",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBLexWid84trUu43OdbgLdA7t3++eCsKI0ZAitmtbtw5HNi8Zwz+4hTfIVWe7x8vhA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "user-seed",
+                            TwoFactorEnabled = false,
+                            UserName = "user"
+                        });
                 });
 
             modelBuilder.Entity("PHMIS.Domain.Entities.Laboratory.LabTest", b =>
@@ -432,7 +472,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Glucose",
                             NormalRange = "70-99",
                             Price = 10,
-                            PublicId = "2f539d1b-74af-4cb7-9db4-bff22e6e7420",
+                            PublicId = "2047cb3e-1ca6-4694-a09e-579d18d74933",
                             UnitOfMeasurment = "mg/dL"
                         },
                         new
@@ -445,7 +485,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Lipid Profile",
                             NormalRange = "Varies",
                             Price = 25,
-                            PublicId = "1189386f-aa14-4031-a1d3-337009234d29",
+                            PublicId = "44d7a3b4-e1f2-4f73-9b05-c5d31f5f7a82",
                             UnitOfMeasurment = "mg/dL"
                         },
                         new
@@ -458,7 +498,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "CBC",
                             NormalRange = "Varies",
                             Price = 20,
-                            PublicId = "53ee01ed-9b39-407c-b6b0-3a27fe4fd87f"
+                            PublicId = "2fce2e21-6ffa-463e-8fb8-9c3c371b10fa"
                         },
                         new
                         {
@@ -470,7 +510,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Urine Culture",
                             NormalRange = "Negative",
                             Price = 30,
-                            PublicId = "e96edb23-4927-45c1-89f2-cc18d437929c"
+                            PublicId = "6daac446-6607-4c10-8bd3-d89f76ce3d2d"
                         });
                 });
 
@@ -504,7 +544,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Id = 1,
                             Description = "Chemistry tests",
                             Name = "Chemistry",
-                            PublicId = "e7028603-a49e-4176-863c-34d6b50d83aa",
+                            PublicId = "b067b1f1-a15c-4587-8ba6-a0133e0388d3",
                             SortOrder = (short)1
                         },
                         new
@@ -512,7 +552,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Id = 2,
                             Description = "Blood tests",
                             Name = "Hematology",
-                            PublicId = "662155dc-36c7-4526-91f8-97fa69faf6e8",
+                            PublicId = "3f883a9f-49db-45f5-976e-fda9b1a19f2e",
                             SortOrder = (short)2
                         },
                         new
@@ -520,7 +560,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Id = 3,
                             Description = "Microbiology tests",
                             Name = "Microbiology",
-                            PublicId = "31ff63a9-1af2-4859-b6d6-7b5f08d03980",
+                            PublicId = "66ee7cbb-ec2f-4aee-83ad-42b3fe53c28b",
                             SortOrder = (short)3
                         });
                 });
@@ -582,7 +622,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LastName = "Doe",
                             Name = "John",
                             PhoneNumber = "555-1234",
-                            PublicId = "503c7733-5651-41d9-810b-c0425ea48e54"
+                            PublicId = "118cb46f-e99b-4962-a2dc-0e84760abfd8"
                         },
                         new
                         {
@@ -594,7 +634,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LastName = "Smith",
                             Name = "Jane",
                             PhoneNumber = "555-5678",
-                            PublicId = "021f64a1-efab-431f-8872-2520e2227fbe"
+                            PublicId = "ee78c548-ab54-476b-8177-cd6fcac11f09"
                         },
                         new
                         {
@@ -606,7 +646,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LastName = "Johnson",
                             Name = "Alex",
                             PhoneNumber = "555-9012",
-                            PublicId = "661f28c2-747b-4bc6-a5a6-3c0c176ca0ff"
+                            PublicId = "e5a54274-eb6f-488a-bf4d-4276f0a93c33"
                         });
                 });
 

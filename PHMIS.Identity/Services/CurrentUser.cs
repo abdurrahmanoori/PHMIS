@@ -12,7 +12,12 @@ namespace PHMIS.Identity.Services
             //_httpContextAccessor = httpContextAccessor;
         }
 
-        public int? GetUserId()
+        public int GetHospitalId()
+        {
+            return 1;
+        }
+
+        public int GetUserId()
         {
             //var user = _httpContextAccessor.HttpContext?.User;
             //if (user?.Identity?.IsAuthenticated ?? false)

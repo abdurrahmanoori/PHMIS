@@ -13,14 +13,13 @@ namespace PHMIS.Controllers
     public class PatientController : BaseApiController
     {
         [HttpPost]
-        public async Task<ActionResult<PatientCreateDto>> Create(PatientCreateDto dto) =>
+        public async Task<ActionResult<PatientDto>> Create(PatientCreateDto dto) =>
          HandleResultResponse(await Mediator.Send(new CreatePatientCommand(dto)));
 
         [HttpGet]
         public async Task<ActionResult<PagedList<PatientDto>>> GetAll([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25) =>
             HandleResultResponse(await Mediator.Send(new GetPatientListQuery(pageNumber, pageSize)));
 
-        
         [HttpGet("{id}")]
         public async Task<ActionResult<PatientDto>> GetById(int id) =>
             HandleResultResponse(await Mediator.Send(new GetPatientByIdQuery(id)));
@@ -31,7 +30,6 @@ namespace PHMIS.Controllers
 
         [HttpDelete("{id}")]
         [ApiExplorerSettings(IgnoreApi = true)]
-
         public async Task<ActionResult<Unit>> Delete(int id) =>
             HandleResultResponse(await Mediator.Send(new DeletePatientCommand(id)));
     }
