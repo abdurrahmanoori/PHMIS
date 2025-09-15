@@ -9,10 +9,10 @@ namespace PHMIS.Infrastructure.EntityConfigurations
         public void Configure(EntityTypeBuilder<ProvinceTranslation> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Language).HasMaxLength(10).IsRequired();
+            builder.Property(x => x.LanguageCode).HasMaxLength(10).IsRequired();
             builder.Property(x => x.Name).HasMaxLength(200).IsRequired();
 
-            builder.HasIndex(x => new { x.ProvinceId, x.Language }).IsUnique();
+            builder.HasIndex(x => new { x.ProvinceId, x.LanguageCode }).IsUnique();
 
             builder.HasOne(x => x.Province)
                    .WithMany(p => p.Translations)

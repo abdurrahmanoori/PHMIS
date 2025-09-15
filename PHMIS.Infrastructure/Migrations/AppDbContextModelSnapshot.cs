@@ -247,7 +247,7 @@ namespace PHMIS.Infrastructure.Migrations
                             City = "Springfield",
                             Code = "H-CENTRAL",
                             Country = "US",
-                            CreatedDate = new DateTime(2025, 9, 15, 13, 20, 2, 287, DateTimeKind.Local).AddTicks(1610),
+                            CreatedDate = new DateTime(2025, 9, 15, 16, 16, 48, 468, DateTimeKind.Local).AddTicks(757),
                             Email = "central@example.com",
                             HospitalId = 0,
                             IsActive = true,
@@ -255,7 +255,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Central Hospital",
                             Phone = "+1-555-0001",
                             PublicId = "a4ec3c8d-2b05-4a3d-9b08-8c6f0d1b4a11",
-                            UpdatedDate = new DateTime(2025, 9, 15, 13, 20, 2, 287, DateTimeKind.Local).AddTicks(1621)
+                            UpdatedDate = new DateTime(2025, 9, 15, 16, 16, 48, 468, DateTimeKind.Local).AddTicks(768)
                         },
                         new
                         {
@@ -264,7 +264,7 @@ namespace PHMIS.Infrastructure.Migrations
                             City = "Springfield",
                             Code = "H-WEST",
                             Country = "US",
-                            CreatedDate = new DateTime(2025, 9, 15, 13, 20, 2, 287, DateTimeKind.Local).AddTicks(1630),
+                            CreatedDate = new DateTime(2025, 9, 15, 16, 16, 48, 468, DateTimeKind.Local).AddTicks(774),
                             Email = "west@example.com",
                             HospitalId = 0,
                             IsActive = true,
@@ -272,7 +272,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Westside Clinic",
                             Phone = "+1-555-0002",
                             PublicId = "b8b2a2b3-6f02-4c8e-9b47-84a118e8f2c2",
-                            UpdatedDate = new DateTime(2025, 9, 15, 13, 20, 2, 287, DateTimeKind.Local).AddTicks(1630)
+                            UpdatedDate = new DateTime(2025, 9, 15, 16, 16, 48, 468, DateTimeKind.Local).AddTicks(775)
                         },
                         new
                         {
@@ -281,7 +281,7 @@ namespace PHMIS.Infrastructure.Migrations
                             City = "Springfield",
                             Code = "H-EAST",
                             Country = "US",
-                            CreatedDate = new DateTime(2025, 9, 15, 13, 20, 2, 287, DateTimeKind.Local).AddTicks(1634),
+                            CreatedDate = new DateTime(2025, 9, 15, 16, 16, 48, 468, DateTimeKind.Local).AddTicks(779),
                             Email = "east@example.com",
                             HospitalId = 0,
                             IsActive = true,
@@ -289,7 +289,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "East Medical Center",
                             Phone = "+1-555-0003",
                             PublicId = "c3f4d6e7-8a90-4b2c-b3d4-e5f6a7b8c9d0",
-                            UpdatedDate = new DateTime(2025, 9, 15, 13, 20, 2, 287, DateTimeKind.Local).AddTicks(1635)
+                            UpdatedDate = new DateTime(2025, 9, 15, 16, 16, 48, 468, DateTimeKind.Local).AddTicks(780)
                         });
                 });
 
@@ -400,7 +400,7 @@ namespace PHMIS.Infrastructure.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "460a38d0-e2dd-435a-af1f-6af93a8bc79f",
+                            ConcurrencyStamp = "b32b67e0-e08c-4a2e-8004-445e8b0b23a3",
                             Email = "admin@local",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -409,7 +409,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCAL",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGZN64iqOJsqWXGajm/UnHJ0bEvmy8ac/WKYtarg3gsEF79mVjcEQcJHBs7Rp1hMRw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIZAMFHWcwt9yfxvolCbjdFWmyGaLi/38j6aeO3IwaIxhkWLKPzTOR/wqbZVneRzvA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "admin-seed",
                             TwoFactorEnabled = false,
@@ -419,7 +419,7 @@ namespace PHMIS.Infrastructure.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "44558b57-c724-4c05-9e90-737d2cba470e",
+                            ConcurrencyStamp = "3a4348ef-497d-4f19-a394-4a205f2b01a4",
                             Email = "user@local",
                             EmailConfirmed = true,
                             FirstName = "Default",
@@ -428,7 +428,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCAL",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEN4letfkvk9aVMgZMp0n+X2IRIGo7qaUr4hAly2s/ePr0oeFUQaGoGXdmB3AAcTRYg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEC0OfgbHl7eTk6TwT5yWK4sxKu7Il0fQlM1wFs91+9oW4doJSi1LOTKvydvh2RH2Tg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "user-seed",
                             TwoFactorEnabled = false,
@@ -497,7 +497,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Glucose",
                             NormalRange = "70-99",
                             Price = 10,
-                            PublicId = "740480c5-5bf0-4784-9132-23deb2bacf00",
+                            PublicId = "1d2d4dd5-e3f4-4fcf-8aa7-c3989c0245e7",
                             UnitOfMeasurment = "mg/dL"
                         },
                         new
@@ -512,7 +512,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Lipid Profile",
                             NormalRange = "Varies",
                             Price = 25,
-                            PublicId = "38b7504e-d903-4faa-876b-f44f05760c05",
+                            PublicId = "10dddaff-c6cf-46ad-a89a-be5eba14f163",
                             UnitOfMeasurment = "mg/dL"
                         },
                         new
@@ -527,7 +527,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "CBC",
                             NormalRange = "Varies",
                             Price = 20,
-                            PublicId = "dfcd3a08-b1cf-460a-b148-8dc38e0d6813"
+                            PublicId = "355a4a3d-e263-4835-a80b-d37234b2a83c"
                         },
                         new
                         {
@@ -541,7 +541,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Urine Culture",
                             NormalRange = "Negative",
                             Price = 30,
-                            PublicId = "79dd3b51-b6ee-4447-a3e3-763bf9b88b48"
+                            PublicId = "200e8a72-cd9a-48ac-8d9e-ef061f02e7ea"
                         });
                 });
 
@@ -584,7 +584,7 @@ namespace PHMIS.Infrastructure.Migrations
                             HospitalId = 0,
                             IsPublic = false,
                             Name = "Chemistry",
-                            PublicId = "a26afaff-3af3-4a67-9283-ae9888adec64",
+                            PublicId = "9fe7c58d-eddb-4941-9ae9-5e258aa11a07",
                             SortOrder = (short)1
                         },
                         new
@@ -594,7 +594,7 @@ namespace PHMIS.Infrastructure.Migrations
                             HospitalId = 0,
                             IsPublic = false,
                             Name = "Hematology",
-                            PublicId = "d29af8f6-ed28-48ad-b5a5-a1c77ed4cd53",
+                            PublicId = "5b087451-b5ca-4351-895f-663f504edd42",
                             SortOrder = (short)2
                         },
                         new
@@ -604,7 +604,7 @@ namespace PHMIS.Infrastructure.Migrations
                             HospitalId = 0,
                             IsPublic = false,
                             Name = "Microbiology",
-                            PublicId = "ea87f6fb-6719-4f8f-8861-00df1765cb01",
+                            PublicId = "efbddbec-3a42-404e-876d-86023bb1e749",
                             SortOrder = (short)3
                         });
                 });
@@ -717,7 +717,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LastName = "Doe",
                             Name = "John",
                             PhoneNumber = "555-1234",
-                            PublicId = "8d82cf96-f852-4f2c-875d-d8cf65cdeea1"
+                            PublicId = "f924bc50-0d6d-40bc-8c18-ee1ff0d4f7e8"
                         },
                         new
                         {
@@ -731,7 +731,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LastName = "Smith",
                             Name = "Jane",
                             PhoneNumber = "555-5678",
-                            PublicId = "145beda6-873b-4508-8556-0f3712067b42"
+                            PublicId = "1c5d27e5-6a3f-413a-8b51-c90ea1539d82"
                         },
                         new
                         {
@@ -745,7 +745,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LastName = "Johnson",
                             Name = "Alex",
                             PhoneNumber = "555-9012",
-                            PublicId = "dd03dc0e-1e69-479f-9e9b-d098b3728879"
+                            PublicId = "327f33af-68fc-4bfc-9866-e7e2fe0711cd"
                         });
                 });
 
@@ -850,6 +850,64 @@ namespace PHMIS.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Provinces");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            HospitalId = 0,
+                            IsPublic = true,
+                            Name = "Kabul",
+                            PublicId = "11111111-1111-1111-1111-111111111111"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            HospitalId = 0,
+                            IsPublic = true,
+                            Name = "Kandahar",
+                            PublicId = "22222222-2222-2222-2222-222222222222"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            HospitalId = 0,
+                            IsPublic = true,
+                            Name = "Herat",
+                            PublicId = "33333333-3333-3333-3333-333333333333"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            HospitalId = 0,
+                            IsPublic = true,
+                            Name = "Nangarhar",
+                            PublicId = "44444444-4444-4444-4444-444444444444"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            HospitalId = 0,
+                            IsPublic = true,
+                            Name = "Balkh",
+                            PublicId = "55555555-5555-5555-5555-555555555555"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            HospitalId = 0,
+                            IsPublic = true,
+                            Name = "Ghazni",
+                            PublicId = "66666666-6666-6666-6666-666666666666"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            HospitalId = 0,
+                            IsPublic = true,
+                            Name = "Kunduz",
+                            PublicId = "77777777-7777-7777-7777-777777777777"
+                        });
                 });
 
             modelBuilder.Entity("PHMIS.Domain.Entities.ProvinceTranslation", b =>
@@ -880,6 +938,176 @@ namespace PHMIS.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("ProvinceTranslations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsDefault = true,
+                            Language = "en",
+                            Name = "Kabul",
+                            ProvinceId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsDefault = false,
+                            Language = "fa",
+                            Name = "????",
+                            ProvinceId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            IsDefault = false,
+                            Language = "ps",
+                            Name = "????",
+                            ProvinceId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            IsDefault = true,
+                            Language = "en",
+                            Name = "Kandahar",
+                            ProvinceId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            IsDefault = false,
+                            Language = "fa",
+                            Name = "??????",
+                            ProvinceId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            IsDefault = false,
+                            Language = "ps",
+                            Name = "??????",
+                            ProvinceId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            IsDefault = true,
+                            Language = "en",
+                            Name = "Herat",
+                            ProvinceId = 3
+                        },
+                        new
+                        {
+                            Id = 8,
+                            IsDefault = false,
+                            Language = "fa",
+                            Name = "????",
+                            ProvinceId = 3
+                        },
+                        new
+                        {
+                            Id = 9,
+                            IsDefault = false,
+                            Language = "ps",
+                            Name = "????",
+                            ProvinceId = 3
+                        },
+                        new
+                        {
+                            Id = 10,
+                            IsDefault = true,
+                            Language = "en",
+                            Name = "Nangarhar",
+                            ProvinceId = 4
+                        },
+                        new
+                        {
+                            Id = 11,
+                            IsDefault = false,
+                            Language = "fa",
+                            Name = "???????",
+                            ProvinceId = 4
+                        },
+                        new
+                        {
+                            Id = 12,
+                            IsDefault = false,
+                            Language = "ps",
+                            Name = "???????",
+                            ProvinceId = 4
+                        },
+                        new
+                        {
+                            Id = 13,
+                            IsDefault = true,
+                            Language = "en",
+                            Name = "Balkh",
+                            ProvinceId = 5
+                        },
+                        new
+                        {
+                            Id = 14,
+                            IsDefault = false,
+                            Language = "fa",
+                            Name = "???",
+                            ProvinceId = 5
+                        },
+                        new
+                        {
+                            Id = 15,
+                            IsDefault = false,
+                            Language = "ps",
+                            Name = "???",
+                            ProvinceId = 5
+                        },
+                        new
+                        {
+                            Id = 16,
+                            IsDefault = true,
+                            Language = "en",
+                            Name = "Ghazni",
+                            ProvinceId = 6
+                        },
+                        new
+                        {
+                            Id = 17,
+                            IsDefault = false,
+                            Language = "fa",
+                            Name = "????",
+                            ProvinceId = 6
+                        },
+                        new
+                        {
+                            Id = 18,
+                            IsDefault = false,
+                            Language = "ps",
+                            Name = "????",
+                            ProvinceId = 6
+                        },
+                        new
+                        {
+                            Id = 19,
+                            IsDefault = true,
+                            Language = "en",
+                            Name = "Kunduz",
+                            ProvinceId = 7
+                        },
+                        new
+                        {
+                            Id = 20,
+                            IsDefault = false,
+                            Language = "fa",
+                            Name = "?????",
+                            ProvinceId = 7
+                        },
+                        new
+                        {
+                            Id = 21,
+                            IsDefault = false,
+                            Language = "ps",
+                            Name = "?????",
+                            ProvinceId = 7
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

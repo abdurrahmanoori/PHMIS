@@ -3,11 +3,9 @@ using PHMIS.Application.DTO.Patients;
 using PHMIS.Application.DTO.Provinces;
 using PHMIS.Application.DTO.Laboratory;
 using PHMIS.Application.DTO.Hospitals;
-using PHMIS.Application.DTO.Localization;
 using PHMIS.Domain.Entities;
 using PHMIS.Domain.Entities.Laboratory;
 using PHMIS.Domain.Entities.Patients;
-using PHMIS.Domain.Entities.Localization;
 using System.Globalization;
 
 namespace PHMIS.Application.Mappings;
@@ -38,7 +36,7 @@ public class MappingProfile : Profile
                 {
                     dest.Translations = src.Translations.Select(t => new ProvinceTranslation
                     {
-                        Language = t.Language,
+                        LanguageCode = t.Language,
                         IsDefault = t.IsDefault,
                         Name = t.Name
                     }).ToList();
@@ -51,7 +49,7 @@ public class MappingProfile : Profile
                     {
                         dest.Translations.Add(new ProvinceTranslation
                         {
-                            Language = "en",
+                            LanguageCode = "en",
                             IsDefault = true,
                             Name = src.Name
                         });
@@ -71,9 +69,7 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Name,
                 opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.Code) ? (src.Email ?? "Hospital") : src.Code));
 
-        // Language mappings
-        CreateMap<Language, LanguageDto>().ReverseMap();
-        CreateMap<Language, LanguageCreateDto>().ReverseMap();
+        CreateMap<ProvinceTranslation, ProvinceTranslationDto>().ReverseMap();
     }
 
     private static string ResolveProvinceName(Province src)
@@ -82,9 +78,9 @@ public class MappingProfile : Profile
         {
             var translations = src.Translations;
             var current = CultureInfo.CurrentUICulture;
-            var exact = translations.FirstOrDefault(t => string.Equals(t.Language, current.Name, StringComparison.OrdinalIgnoreCase));
+            var exact = translations.FirstOrDefault(t => string.Equals(t.LanguageCode, current.Name, StringComparison.OrdinalIgnoreCase));
             if (exact != null) return exact.Name;
-            var primary = translations.FirstOrDefault(t => string.Equals(t.Language, current.TwoLetterISOLanguageName, StringComparison.OrdinalIgnoreCase));
+            var primary = translations.FirstOrDefault(t => string.Equals(t.LanguageCode, current.TwoLetterISOLanguageName, StringComparison.OrdinalIgnoreCase));
             if (primary != null) return primary.Name;
             var def = translations.FirstOrDefault(t => t.IsDefault);
             if (def != null) return def.Name;
