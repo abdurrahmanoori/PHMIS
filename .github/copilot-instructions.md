@@ -14,6 +14,8 @@ If you encounter any problem, avoid introducing solutions that could cause break
 
 If a test fails, inspect the test output using `private readonly ITestOutputHelper _output;` to identify the issue and fix the test. 
 
+If you find any enum property in an entity, configure it so that its value is stored as the enum itself in the database.
+
 
 
 ## React Application Instruction
