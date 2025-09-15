@@ -4,6 +4,7 @@ using PHMIS.Domain.Entities;
 using PHMIS.Domain.Entities.Identity.Entity;
 using PHMIS.Domain.Entities.Laboratory;
 using PHMIS.Domain.Entities.Patients;
+using PHMIS.Domain.Entities.Localization;
 using PHMIS.Infrastructure.DatabaseSeeders;
 using System.Reflection;
 
@@ -28,6 +29,7 @@ namespace PHMIS.Infrastructure.Context
             LabTestSeed.DataSeed(modelBuilder);
             HospitalSeed.DataSeed(modelBuilder);
             UserSeed.DataSeed(modelBuilder);
+            LanguageSeed.DataSeed(modelBuilder);
             #endregion
 
             // Allow extension from other layers via partial method
@@ -43,5 +45,6 @@ namespace PHMIS.Infrastructure.Context
         public DbSet<LabTest> LabTests { get; set; }
         public DbSet<PatientLabTest> PatientLabTests { get; set; }
         public DbSet<Hospital> Hospitals { get; set; }
+        public DbSet<Language> Languages { get; set; }
     }
 }

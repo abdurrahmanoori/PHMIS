@@ -3,9 +3,11 @@ using PHMIS.Application.DTO.Patients;
 using PHMIS.Application.DTO.Provinces;
 using PHMIS.Application.DTO.Laboratory;
 using PHMIS.Application.DTO.Hospitals;
+using PHMIS.Application.DTO.Localization;
 using PHMIS.Domain.Entities;
 using PHMIS.Domain.Entities.Laboratory;
 using PHMIS.Domain.Entities.Patients;
+using PHMIS.Domain.Entities.Localization;
 using System.Globalization;
 
 namespace PHMIS.Application.Mappings;
@@ -68,6 +70,10 @@ public class MappingProfile : Profile
             .ReverseMap()
             .ForMember(dest => dest.Name,
                 opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.Code) ? (src.Email ?? "Hospital") : src.Code));
+
+        // Language mappings
+        CreateMap<Language, LanguageDto>().ReverseMap();
+        CreateMap<Language, LanguageCreateDto>().ReverseMap();
     }
 
     private static string ResolveProvinceName(Province src)

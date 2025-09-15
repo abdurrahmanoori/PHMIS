@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PHMIS.Infrastructure.Context;
 
@@ -10,9 +11,11 @@ using PHMIS.Infrastructure.Context;
 namespace PHMIS.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250915080703_sdfsddfd")]
+    partial class sdfsddfd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
@@ -247,7 +250,7 @@ namespace PHMIS.Infrastructure.Migrations
                             City = "Springfield",
                             Code = "H-CENTRAL",
                             Country = "US",
-                            CreatedDate = new DateTime(2025, 9, 15, 13, 20, 2, 287, DateTimeKind.Local).AddTicks(1610),
+                            CreatedDate = new DateTime(2025, 9, 15, 12, 37, 2, 712, DateTimeKind.Local).AddTicks(9514),
                             Email = "central@example.com",
                             HospitalId = 0,
                             IsActive = true,
@@ -255,7 +258,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Central Hospital",
                             Phone = "+1-555-0001",
                             PublicId = "a4ec3c8d-2b05-4a3d-9b08-8c6f0d1b4a11",
-                            UpdatedDate = new DateTime(2025, 9, 15, 13, 20, 2, 287, DateTimeKind.Local).AddTicks(1621)
+                            UpdatedDate = new DateTime(2025, 9, 15, 12, 37, 2, 712, DateTimeKind.Local).AddTicks(9525)
                         },
                         new
                         {
@@ -264,7 +267,7 @@ namespace PHMIS.Infrastructure.Migrations
                             City = "Springfield",
                             Code = "H-WEST",
                             Country = "US",
-                            CreatedDate = new DateTime(2025, 9, 15, 13, 20, 2, 287, DateTimeKind.Local).AddTicks(1630),
+                            CreatedDate = new DateTime(2025, 9, 15, 12, 37, 2, 712, DateTimeKind.Local).AddTicks(9532),
                             Email = "west@example.com",
                             HospitalId = 0,
                             IsActive = true,
@@ -272,7 +275,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Westside Clinic",
                             Phone = "+1-555-0002",
                             PublicId = "b8b2a2b3-6f02-4c8e-9b47-84a118e8f2c2",
-                            UpdatedDate = new DateTime(2025, 9, 15, 13, 20, 2, 287, DateTimeKind.Local).AddTicks(1630)
+                            UpdatedDate = new DateTime(2025, 9, 15, 12, 37, 2, 712, DateTimeKind.Local).AddTicks(9533)
                         },
                         new
                         {
@@ -281,7 +284,7 @@ namespace PHMIS.Infrastructure.Migrations
                             City = "Springfield",
                             Code = "H-EAST",
                             Country = "US",
-                            CreatedDate = new DateTime(2025, 9, 15, 13, 20, 2, 287, DateTimeKind.Local).AddTicks(1634),
+                            CreatedDate = new DateTime(2025, 9, 15, 12, 37, 2, 712, DateTimeKind.Local).AddTicks(9537),
                             Email = "east@example.com",
                             HospitalId = 0,
                             IsActive = true,
@@ -289,7 +292,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "East Medical Center",
                             Phone = "+1-555-0003",
                             PublicId = "c3f4d6e7-8a90-4b2c-b3d4-e5f6a7b8c9d0",
-                            UpdatedDate = new DateTime(2025, 9, 15, 13, 20, 2, 287, DateTimeKind.Local).AddTicks(1635)
+                            UpdatedDate = new DateTime(2025, 9, 15, 12, 37, 2, 712, DateTimeKind.Local).AddTicks(9538)
                         });
                 });
 
@@ -400,7 +403,7 @@ namespace PHMIS.Infrastructure.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "460a38d0-e2dd-435a-af1f-6af93a8bc79f",
+                            ConcurrencyStamp = "2b6947a3-d23f-4424-bc9e-8150cd17348b",
                             Email = "admin@local",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -409,7 +412,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCAL",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGZN64iqOJsqWXGajm/UnHJ0bEvmy8ac/WKYtarg3gsEF79mVjcEQcJHBs7Rp1hMRw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEblseR8Ku4Y/7QiUlrIt2HLK/VVEGeRCjZfaTgZ69pumvz7fdbsWuURUjYwppo6kg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "admin-seed",
                             TwoFactorEnabled = false,
@@ -419,7 +422,7 @@ namespace PHMIS.Infrastructure.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "44558b57-c724-4c05-9e90-737d2cba470e",
+                            ConcurrencyStamp = "e70d8c5d-9b14-4338-8a60-5cda283d9fc0",
                             Email = "user@local",
                             EmailConfirmed = true,
                             FirstName = "Default",
@@ -428,7 +431,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCAL",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEN4letfkvk9aVMgZMp0n+X2IRIGo7qaUr4hAly2s/ePr0oeFUQaGoGXdmB3AAcTRYg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP3Hv3UFHRU3ogxFs1JQ4+rGZdgB8I8KwZEFIvCWMaOCX/bWp+iVMw6qaU2P87KvSA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "user-seed",
                             TwoFactorEnabled = false,
@@ -497,7 +500,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Glucose",
                             NormalRange = "70-99",
                             Price = 10,
-                            PublicId = "740480c5-5bf0-4784-9132-23deb2bacf00",
+                            PublicId = "46f7d248-afd4-40d1-8d9a-1e2f28baaaaa",
                             UnitOfMeasurment = "mg/dL"
                         },
                         new
@@ -512,7 +515,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Lipid Profile",
                             NormalRange = "Varies",
                             Price = 25,
-                            PublicId = "38b7504e-d903-4faa-876b-f44f05760c05",
+                            PublicId = "750cf2ff-074b-415a-bced-35239725c636",
                             UnitOfMeasurment = "mg/dL"
                         },
                         new
@@ -527,7 +530,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "CBC",
                             NormalRange = "Varies",
                             Price = 20,
-                            PublicId = "dfcd3a08-b1cf-460a-b148-8dc38e0d6813"
+                            PublicId = "14f80c5f-a6d7-414f-8aa5-8de30b2253e8"
                         },
                         new
                         {
@@ -541,7 +544,7 @@ namespace PHMIS.Infrastructure.Migrations
                             Name = "Urine Culture",
                             NormalRange = "Negative",
                             Price = 30,
-                            PublicId = "79dd3b51-b6ee-4447-a3e3-763bf9b88b48"
+                            PublicId = "e07f0cd2-d214-4a1c-94e7-39deacc0cb4f"
                         });
                 });
 
@@ -584,7 +587,7 @@ namespace PHMIS.Infrastructure.Migrations
                             HospitalId = 0,
                             IsPublic = false,
                             Name = "Chemistry",
-                            PublicId = "a26afaff-3af3-4a67-9283-ae9888adec64",
+                            PublicId = "490d93f2-cf15-4452-a2c2-be113b40156e",
                             SortOrder = (short)1
                         },
                         new
@@ -594,7 +597,7 @@ namespace PHMIS.Infrastructure.Migrations
                             HospitalId = 0,
                             IsPublic = false,
                             Name = "Hematology",
-                            PublicId = "d29af8f6-ed28-48ad-b5a5-a1c77ed4cd53",
+                            PublicId = "297c5aca-a773-4fcc-a038-43133a87fab9",
                             SortOrder = (short)2
                         },
                         new
@@ -604,7 +607,7 @@ namespace PHMIS.Infrastructure.Migrations
                             HospitalId = 0,
                             IsPublic = false,
                             Name = "Microbiology",
-                            PublicId = "ea87f6fb-6719-4f8f-8861-00df1765cb01",
+                            PublicId = "53dee776-1a15-4567-a68f-9049cbf2c8f7",
                             SortOrder = (short)3
                         });
                 });
@@ -640,16 +643,9 @@ namespace PHMIS.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            Code = "ps",
+                            Code = "fr",
                             IsActive = true,
-                            Name = "Pashto"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Code = "fa",
-                            IsActive = true,
-                            Name = "Farsi"
+                            Name = "French"
                         });
                 });
 
@@ -717,7 +713,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LastName = "Doe",
                             Name = "John",
                             PhoneNumber = "555-1234",
-                            PublicId = "8d82cf96-f852-4f2c-875d-d8cf65cdeea1"
+                            PublicId = "66117dc3-3f83-4fe6-9cc9-0d5a14cc2a7c"
                         },
                         new
                         {
@@ -731,7 +727,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LastName = "Smith",
                             Name = "Jane",
                             PhoneNumber = "555-5678",
-                            PublicId = "145beda6-873b-4508-8556-0f3712067b42"
+                            PublicId = "87385063-d0cb-44fa-86cc-cebe64753c4e"
                         },
                         new
                         {
@@ -745,7 +741,7 @@ namespace PHMIS.Infrastructure.Migrations
                             LastName = "Johnson",
                             Name = "Alex",
                             PhoneNumber = "555-9012",
-                            PublicId = "dd03dc0e-1e69-479f-9e9b-d098b3728879"
+                            PublicId = "69e1417f-f99f-47a8-a4be-9982ffb041e2"
                         });
                 });
 

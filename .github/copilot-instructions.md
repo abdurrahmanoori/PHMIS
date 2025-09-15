@@ -2,7 +2,7 @@ If a new property is added to a domain model, make sure to propagate the change 
 
 
 
-If I ask you to add a new entity, implement it in the same way as the Patient entity. That means writing all its operations (commands, queries, controller), creating a database seeder, adding a migration, updating the database, writing integration tests, and handling any other necessary tasks.
+If I ask you to add a new entity, implement it in the same way as the Patient entity. That means writing all its operations (commands, queries, controller), creating a database seeder, adding a migration, updating the database, writing integration tests, and handling any other necessary tasks. If you face a problem, check how I handled it in other entities or components and follow the same approach.
 
 
 
