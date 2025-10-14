@@ -1,7 +1,6 @@
 ﻿using PHMIS.Infrastructure.Context;
 using PHMIS.Test.TestInfrastructure;
 using Microsoft.Extensions.DependencyInjection;
-using System.Threading.Tasks;
 
 namespace PHMIS.Test.Extensions
 {

@@ -12,12 +12,19 @@ namespace PHMIS.Infrastructure.EntityConfigurations
             builder.Property(x => x.LanguageCode).HasMaxLength(10).IsRequired();
             builder.Property(x => x.Name).HasMaxLength(200).IsRequired();
 
-            builder.HasIndex(x => new { x.ProvinceId, x.LanguageCode }).IsUnique();
+            // use LanguageId for uniqueness to match FK relationship
+            builder.HasIndex(x => new { x.ProvinceId, x.LanguageId }).IsUnique();
 
             builder.HasOne(x => x.Province)
                    .WithMany(p => p.Translations)
                    .HasForeignKey(x => x.ProvinceId)
                    .OnDelete(DeleteBehavior.Cascade);
+
+            // configure relationship to Language (FK)
+            builder.HasOne(x => x.Language)
+                   .WithMany()
+                   .HasForeignKey(x => x.LanguageId)
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

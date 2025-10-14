@@ -5,6 +5,7 @@ using PHMIS.Application.DTO.Provinces;
 using PHMIS.Application.Repositories.Provinces;
 using PHMIS.Application.Repositories.Base;
 using PHMIS.Domain.Entities;
+using PHMIS.Application.Repositories.Localization;
 
 namespace PHMIS.Application.Features.Provinces.Commands
 {
@@ -15,10 +16,11 @@ namespace PHMIS.Application.Features.Provinces.Commands
         private readonly IProvinceRepository _repo;
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
+        private readonly ILanguageRepository _languageRepo;
 
-        public UpdateProvinceTranslationCommandHandler(IProvinceRepository repo, IUnitOfWork uow, IMapper mapper)
+        public UpdateProvinceTranslationCommandHandler(IProvinceRepository repo, IUnitOfWork uow, IMapper mapper, ILanguageRepository languageRepo)
         {
-            _repo = repo; _uow = uow; _mapper = mapper;
+            _repo = repo; _uow = uow; _mapper = mapper; _languageRepo = languageRepo;
         }
 
         public async Task<Result<ProvinceTranslationDto>> Handle(UpdateProvinceTranslationCommand request, CancellationToken cancellationToken)
@@ -29,8 +31,22 @@ namespace PHMIS.Application.Features.Provinces.Commands
             var trans = province.Translations.FirstOrDefault(t => t.Id == request.Id);
             if (trans is null) return Result<ProvinceTranslationDto>.NotFoundResult(request.Id);
 
-            // Use AutoMapper to map incoming DTO onto existing entity instance
+            // Map incoming values onto the tracked entity
             _mapper.Map(request.Dto, trans);
+
+            // Resolve language id if provided or by code
+            if (request.Dto.LanguageId > 0)
+            {
+                trans.LanguageId = request.Dto.LanguageId;
+            }
+            else if (!string.IsNullOrWhiteSpace(request.Dto.LanguageCode))
+            {
+                var lang = await _languageRepo.GetFirstOrDefaultAsync(x => x.Code == request.Dto.LanguageCode);
+                if (lang != null) trans.LanguageId = lang.Id;
+            }
+
+            // Ensure LanguageCode is synced
+            trans.LanguageCode = request.Dto.LanguageCode;
 
             await _uow.SaveChanges(cancellationToken);
 

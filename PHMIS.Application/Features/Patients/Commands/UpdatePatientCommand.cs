@@ -4,7 +4,6 @@ using PHMIS.Application.Common.Response;
 using PHMIS.Application.DTO.Patients;
 using PHMIS.Application.Repositories.Base;
 using PHMIS.Application.Repositories.Patients;
-using PHMIS.Domain.Entities;
 
 namespace PHMIS.Application.Features.Patients.Commands
 {

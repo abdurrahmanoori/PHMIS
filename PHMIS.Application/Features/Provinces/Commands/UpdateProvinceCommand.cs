@@ -44,7 +44,8 @@ namespace PHMIS.Application.Features.Provinces.Commands
                 {
                     existing.Translations.Add(new ProvinceTranslation
                     {
-                        LanguageCode = t.Language,
+                        LanguageCode = t.LanguageCode,
+                        LanguageId = t.LanguageId,
                         IsDefault = t.IsDefault,
                         Name = t.Name
                     });
@@ -68,7 +69,7 @@ namespace PHMIS.Application.Features.Provinces.Commands
                 {
                     existing.Translations = new List<ProvinceTranslation>
                     {
-                        new ProvinceTranslation { LanguageCode = "en", IsDefault = true, Name = request.ProvinceDto.Name }
+                        new ProvinceTranslation { LanguageCode = "en", LanguageId = 1, IsDefault = true, Name = request.ProvinceDto.Name }
                     };
                 }
                 else

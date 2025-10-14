@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using PHMIS.Application.DTO.Localization;
 using PHMIS.Application.DTO.Patients;
 using PHMIS.Application.DTO.Provinces;
 using PHMIS.Application.DTO.Laboratory;
 using PHMIS.Application.DTO.Hospitals;
 using PHMIS.Domain.Entities;
+using PHMIS.Domain.Entities.Localization;
 using PHMIS.Domain.Entities.Laboratory;
 using PHMIS.Domain.Entities.Patients;
 using System.Globalization;
@@ -21,6 +23,10 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.HospitalId, opt => opt.MapFrom(src => src.HospitalId))
             .ReverseMap();
 
+        // Language mappings
+        CreateMap<Language, LanguageDto>().ReverseMap();
+        CreateMap<Language, LanguageCreateDto>().ReverseMap();
+
         // Province mapping: resolve Name by current UI culture from Translations, fallback to entity Name
         CreateMap<Province, ProvinceDto>()
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src =>
@@ -36,7 +42,8 @@ public class MappingProfile : Profile
                 {
                     dest.Translations = src.Translations.Select(t => new ProvinceTranslation
                     {
-                        LanguageCode = t.Language,
+                        LanguageCode = t.LanguageCode,
+                        LanguageId = t.LanguageId,
                         IsDefault = t.IsDefault,
                         Name = t.Name
                     }).ToList();
@@ -50,6 +57,7 @@ public class MappingProfile : Profile
                         dest.Translations.Add(new ProvinceTranslation
                         {
                             LanguageCode = "en",
+                            LanguageId = 1,
                             IsDefault = true,
                             Name = src.Name
                         });
@@ -69,7 +77,12 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Name,
                 opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.Code) ? (src.Email ?? "Hospital") : src.Code));
 
-        CreateMap<ProvinceTranslation, ProvinceTranslationDto>().ReverseMap();
+        CreateMap<ProvinceTranslation, ProvinceTranslationDto>()
+            .ForMember(dest => dest.LanguageCode, opt => opt.MapFrom(src => src.LanguageCode))
+            .ForMember(dest => dest.LanguageId, opt => opt.MapFrom(src => src.LanguageId))
+            .ReverseMap()
+            .ForMember(dest => dest.LanguageCode, opt => opt.MapFrom(src => src.LanguageCode))
+            .ForMember(dest => dest.LanguageId, opt => opt.MapFrom(src => src.LanguageId));
     }
 
     private static string ResolveProvinceName(Province src)

@@ -45,8 +45,8 @@ namespace PHMIS.Test.Controllers
             var list = await _client.GetFromJsonAsync<PagedList<ProvinceDto>>("/api/province?pageNumber=1&pageSize=10");
             var created = list!.Items.First(x => x.Name == provinceCreate.Name);
 
-            // Create translation
-            var trans = new ProvinceTranslationDto { ProvinceId = created.Id, Language = "es", IsDefault = false, Name = "Provincia Prueba" };
+            // Create translation - use LanguageId for seeded Pashto (2) with appropriate code
+            var trans = new ProvinceTranslationDto { ProvinceId = created.Id, LanguageCode = "ps", LanguageId = 2, IsDefault = false, Name = "Province Test" };
             var postTrans = await _client.PostAsJsonAsync("/api/provincetranslation", trans);
             await LogIfError(postTrans, "CreateTrans");
             postTrans.EnsureSuccessStatusCode();
